@@ -11,27 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # 1️⃣ Клонируем репозиторий
     - uses: actions/checkout@v4
 
+    # 2️⃣ Устанавливаем Go
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
         go-version: '1.26.2'
 
-    # ✅ Загружаем зависимости
+    # 3️⃣ Загружаем зависимости проекта
     - name: Download dependencies
       run: go mod download
 
-    # ✅ Запускаем golangci-lint через Action
+    # 4️⃣ Запуск golangci-lint через официальный Action
     - name: Run golangci-lint
       uses: golangci/golangci-lint-action@v3
       with:
         version: v1.59.0
 
-    # ✅ Сборка проекта
+    # 5️⃣ Сборка проекта
     - name: Build
-      run: go build -v ./...
+      run: go build ./...
 
-    # ✅ Запуск тестов
+    # 6️⃣ Запуск тестов
     - name: Test
-      run: go test -v ./...
+      run: go test ./... -v -coverprofile=coverage.out
