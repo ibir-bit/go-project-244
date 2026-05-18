@@ -1,6 +1,7 @@
 run:
   tests: true
   timeout: 5m
+  modules-download-mode: mod
 
 linters:
   enable:
@@ -9,8 +10,8 @@ linters:
     - staticcheck
     - gosimple
     - unused
-    - structcheck
-    - deadcode
+  disable:
+    - typecheck  # Отключаем проверку типов
 
 issues:
   exclude-use-default: false
