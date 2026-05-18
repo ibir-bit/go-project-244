@@ -16,7 +16,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.26.2'
+        go-version: '1.24'  # ← ИЗМЕНИТЕ: 1.26.2 → 1.24 (такой версии нет)
 
     # ✅ Скачиваем все зависимости проекта
     - name: Download dependencies
@@ -24,9 +24,10 @@ jobs:
 
     # ✅ Запуск golangci-lint через официальный Action
     - name: Run golangci-lint
-      uses: golangci/golangci-lint-action@v3
+      uses: golangci/golangci-lint-action@v4  # ← ИЗМЕНИТЕ: v3 → v4
       with:
-        version: v1.59.0
+        version: latest  # ← ИЗМЕНИТЕ: v1.59.0 → latest
+        args: --timeout=5m  # ← ДОБАВЬТЕ эту строку
 
     # ✅ Сборка проекта
     - name: Build
