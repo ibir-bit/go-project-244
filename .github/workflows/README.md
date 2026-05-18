@@ -5,3 +5,4 @@ After completing all the steps in the project, automatic tests will become avail
 The hexlet-check.yml file is responsible for running these tests - do not delete this file, edit it, or rename the repository.
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ibir-bit_go-project-244&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ibir-bit_go-project-244)
+[![Go CI](https://github.com/ibir-bit/go-project-244/actions/workflows/go.yml/badge.svg)](https://github.com/ibir-bit/go-project-244/actions/workflows/go.yml)
